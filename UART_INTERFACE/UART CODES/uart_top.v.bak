@@ -1,0 +1,91 @@
+module uart_top (
+    input            clk,
+    input            rst,
+    input            wr_en,
+    input      [7:0] data_in,
+    output     [7:0] data_out,
+    output           tx,
+    output           irq
+);
+    // Internal wires
+    wire        tick;
+    wire        tx_busy;
+    wire        tx_fifo_rd_en;
+    wire [7:0]  tx_fifo_dout;
+    wire        tx_fifo_full;
+    wire        tx_fifo_empty;
+    wire [7:0]  rx_data;
+    wire        rx_valid;
+    wire        rx_fifo_empty;
+ 
+    // Baud generator
+    baud_gen bg (
+        .clk  (clk),
+        .rst  (rst),
+        .tick (tick)
+    );
+ 
+    // TX FIFO ? written by testbench, read by uart_tx
+    sync_fifo tx_fifo (
+        .clk   (clk),
+        .rst   (rst),
+        .wr_en (wr_en),
+        .rd_en (tx_fifo_rd_en),
+        .din   (data_in),
+        .dout  (tx_fifo_dout),
+        .full  (tx_fifo_full),
+        .empty (tx_fifo_empty)
+    );
+ 
+    // TX engine ? controls its own FIFO rd_en
+    uart_tx txu (
+        .clk        (clk),
+        .rst        (rst),
+        .tick       (tick),
+        .fifo_dout  (tx_fifo_dout),
+        .fifo_empty (tx_fifo_empty),
+        .fifo_rd_en (tx_fifo_rd_en),
+        .tx         (tx),
+        .busy       (tx_busy)
+    );
+ 
+    // RX engine ? loopback: rx input = tx output
+    uart_rx rxu (
+        .clk   (clk),
+        .rst   (rst),
+        .tick  (tick),
+        .rx    (tx),
+        .data  (rx_data),
+        .valid (rx_valid)
+    );
+ 
+    // RX FIFO ? written when byte received, not read in this demo
+    sync_fifo rx_fifo (
+        .clk   (clk),
+        .rst   (rst),
+        .wr_en (rx_valid),
+        .rd_en (1'b0),
+        .din   (rx_data),
+        .dout  (),
+        .full  (),
+        .empty (rx_fifo_empty)
+    );
+ 
+    // data_out ? registered directly from rx_data when valid pulses
+    reg [7:0] data_out_r;
+    always @(posedge clk or posedge rst) begin
+        if (rst)
+            data_out_r <= 8'h00;
+        else if (rx_valid)
+            data_out_r <= rx_data;
+    end
+    assign data_out = data_out_r;
+ 
+    // Interrupt controller
+    interrupt_ctrl ic (
+        .rx_ready (rx_valid),
+        .tx_empty (tx_fifo_empty),
+        .irq      (irq)
+    );
+ 
+endmodule

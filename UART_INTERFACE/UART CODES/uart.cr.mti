@@ -1,0 +1,43 @@
+C:/MODELSIM/uart_tx.v {1 {vlog -work work -stats=none C:/MODELSIM/uart_tx.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module uart_tx
+
+Top level modules:
+	uart_tx
+
+} {} {}} C:/MODELSIM/fifo.v {1 {vlog -work work -stats=none C:/MODELSIM/fifo.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module fifo
+
+Top level modules:
+	fifo
+
+} {} {}} C:/MODELSIM/uart_rx.v {1 {vlog -work work -stats=none C:/MODELSIM/uart_rx.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module uart_rx
+
+Top level modules:
+	uart_rx
+
+} {} {}} C:/MODELSIM/interrupt_ctrl.v {1 {vlog -work work -stats=none C:/MODELSIM/interrupt_ctrl.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module interrupt_ctrl
+
+Top level modules:
+	interrupt_ctrl
+
+} {} {}} C:/MODELSIM/baud_gen.v {1 {vlog -work work -stats=none C:/MODELSIM/baud_gen.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module baud_gen
+
+Top level modules:
+	baud_gen
+
+} {} {}} C:/MODELSIM/uart_top.v {1 {vlog -work work -stats=none C:/MODELSIM/uart_top.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module uart_top
+
+Top level modules:
+	uart_top
+
+} {} {}}
