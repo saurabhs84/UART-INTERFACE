@@ -1,80 +1,45 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 07.04.2026 02:09:00
+// Design Name: 
+// Module Name: uart_top
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
 module uart_top (
-    input            clk,
-    input            rst,
-    input            wr_en,
-    input      [7:0] data_in,
-    output     [7:0] data_out,
-    output           tx,
-    output           irq
+    input rst,
+    input [7:0] data_in,
+    input wr_en, clk, rdy_clr,
+    output rdy, busy,
+    output [7:0] data_out
 );
-    wire        tick;
-    wire        tx_fifo_rd_en;
-    wire [7:0]  tx_fifo_dout;
-    wire        tx_fifo_full;
-    wire        tx_fifo_empty;
-    wire [7:0]  rx_data;
-    wire        rx_valid;
-    wire        rx_fifo_empty;
- 
-    baud_gen bg (
-        .clk  (clk),
-        .rst  (rst),
-        .tick (tick)
-    );
- 
-    sync_fifo tx_fifo (
-        .clk   (clk),
-        .rst   (rst),
-        .wr_en (wr_en),
-        .rd_en (tx_fifo_rd_en),
-        .din   (data_in),
-        .dout  (tx_fifo_dout),
-        .full  (tx_fifo_full),
-        .empty (tx_fifo_empty)
-    );
- 
-    uart_tx txu (
-        .clk        (clk),
-        .rst        (rst),
-        .tick       (tick),
-        .fifo_dout  (tx_fifo_dout),
-        .fifo_empty (tx_fifo_empty),
-        .fifo_rd_en (tx_fifo_rd_en),
-        .tx         (tx),
-        .busy       ()
-    );
- 
-    uart_rx rxu (
-        .clk   (clk),
-        .rst   (rst),
-        .tick  (tick),
-        .rx    (tx),        // loopback
-        .data  (rx_data),
-        .valid (rx_valid)
-    );
- 
-    sync_fifo rx_fifo (
-        .clk   (clk),
-        .rst   (rst),
-        .wr_en (rx_valid),
-        .rd_en (1'b0),
-        .din   (rx_data),
-        .dout  (),
-        .full  (),
-        .empty (rx_fifo_empty)
-    );
- 
-    reg [7:0] data_out_r;
-    always @(posedge clk or posedge rst) begin
-        if (rst)           data_out_r <= 8'h00;
-        else if (rx_valid) data_out_r <= rx_data;
-    end
-    assign data_out = data_out_r;
- 
-    interrupt_ctrl ic (
-        .rx_ready (rx_valid),
-        .tx_empty (tx_fifo_empty),
-        .irq      (irq)
-    );
- 
+
+wire rx_clk_en;
+wire tx_clk_en;
+wire tx_line;
+
+baud_rate_generator bg (clk, rst, tx_clk_en, rx_clk_en);
+
+transmitter tx (
+    clk, wr_en, rst, tx_clk_en,
+    data_in, tx_line, busy
+);
+
+uart_receiver rx (
+    clk, rst, tx_line, rdy_clr,
+    rx_clk_en, rdy, data_out
+);
+
 endmodule
