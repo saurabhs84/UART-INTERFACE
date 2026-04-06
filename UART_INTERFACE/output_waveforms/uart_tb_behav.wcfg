@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="uart_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="uart_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="4,630.860001 us"></ZoomEndTime>
+      <Cursor1Time time="4,630.860000 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="148"></NameColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="33" />
+   <wvobject fp_name="/uart_tb/dut/rx/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_tb/dut/rx/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_tb/dut/rx/rx" type="logic">
+      <obj_property name="ElementShortName">rx</obj_property>
+      <obj_property name="ObjectShortName">rx</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_tb/dut/rx/rdy_clr" type="logic">
+      <obj_property name="ElementShortName">rdy_clr</obj_property>
+      <obj_property name="ObjectShortName">rdy_clr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_tb/dut/rx/clk_en" type="logic">
+      <obj_property name="ElementShortName">clk_en</obj_property>
+      <obj_property name="ObjectShortName">clk_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_tb/dut/rx/rdy" type="logic">
+      <obj_property name="ElementShortName">rdy</obj_property>
+      <obj_property name="ObjectShortName">rdy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_tb/dut/rx/data_out" type="array">
+      <obj_property name="ElementShortName">data_out[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_tb/dut/rx/state" type="array">
+      <obj_property name="ElementShortName">state[1:0]</obj_property>
+      <obj_property name="ObjectShortName">state[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_tb/dut/rx/sample" type="array">
+      <obj_property name="ElementShortName">sample[3:0]</obj_property>
+      <obj_property name="ObjectShortName">sample[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_tb/dut/rx/index" type="array">
+      <obj_property name="ElementShortName">index[2:0]</obj_property>
+      <obj_property name="ObjectShortName">index[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_tb/dut/rx/temp" type="array">
+      <obj_property name="ElementShortName">temp[7:0]</obj_property>
+      <obj_property name="ObjectShortName">temp[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_tb/dut/rx/start_state" type="array">
+      <obj_property name="ElementShortName">start_state[1:0]</obj_property>
+      <obj_property name="ObjectShortName">start_state[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_tb/dut/rx/data_state" type="array">
+      <obj_property name="ElementShortName">data_state[1:0]</obj_property>
+      <obj_property name="ObjectShortName">data_state[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_tb/dut/rx/stop_state" type="array">
+      <obj_property name="ElementShortName">stop_state[1:0]</obj_property>
+      <obj_property name="ObjectShortName">stop_state[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_tb/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_tb/data_in" type="array">
+      <obj_property name="ElementShortName">data_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data_in[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_tb/wr_en" type="logic">
+      <obj_property name="ElementShortName">wr_en</obj_property>
+      <obj_property name="ObjectShortName">wr_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_tb/rdy" type="logic">
+      <obj_property name="ElementShortName">rdy</obj_property>
+      <obj_property name="ObjectShortName">rdy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_tb/rdy_clr" type="logic">
+      <obj_property name="ElementShortName">rdy_clr</obj_property>
+      <obj_property name="ObjectShortName">rdy_clr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_tb/dout" type="array">
+      <obj_property name="ElementShortName">dout[7:0]</obj_property>
+      <obj_property name="ObjectShortName">dout[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_tb/busy" type="logic">
+      <obj_property name="ElementShortName">busy</obj_property>
+      <obj_property name="ObjectShortName">busy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_tb/dut/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_tb/dut/data_in" type="array">
+      <obj_property name="ElementShortName">data_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data_in[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_tb/dut/wr_en" type="logic">
+      <obj_property name="ElementShortName">wr_en</obj_property>
+      <obj_property name="ObjectShortName">wr_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_tb/dut/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_tb/dut/rdy_clr" type="logic">
+      <obj_property name="ElementShortName">rdy_clr</obj_property>
+      <obj_property name="ObjectShortName">rdy_clr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_tb/dut/rdy" type="logic">
+      <obj_property name="ElementShortName">rdy</obj_property>
+      <obj_property name="ObjectShortName">rdy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_tb/dut/busy" type="logic">
+      <obj_property name="ElementShortName">busy</obj_property>
+      <obj_property name="ObjectShortName">busy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_tb/dut/data_out" type="array">
+      <obj_property name="ElementShortName">data_out[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_tb/dut/rx_clk_en" type="logic">
+      <obj_property name="ElementShortName">rx_clk_en</obj_property>
+      <obj_property name="ObjectShortName">rx_clk_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_tb/dut/tx_clk_en" type="logic">
+      <obj_property name="ElementShortName">tx_clk_en</obj_property>
+      <obj_property name="ObjectShortName">tx_clk_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_tb/dut/tx_line" type="logic">
+      <obj_property name="ElementShortName">tx_line</obj_property>
+      <obj_property name="ObjectShortName">tx_line</obj_property>
+   </wvobject>
+</wave_config>
